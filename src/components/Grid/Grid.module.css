@@ -1,0 +1,6 @@
+.grid {
+    display: grid;
+    grid-template-columns: repeat(10, 50px);
+    grid-gap: 2px;
+    background-color: deepskyblue;
+}

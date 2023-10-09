@@ -1,13 +1,18 @@
-import { FC } from "react";
+import {FC} from "react";
+import styles from './Cell.module.css'
+import {HIT, TOTAL} from "../../const";
 
 interface IProps {
-    row: number;
-    col: number;
+    value: string;
+    handleCellClick: () => void;
 }
 
-const Cell: FC<IProps> = ({ row, col }) => {
+const Cell: FC<IProps> = ({ value, handleCellClick }) => {
+
+    const classes = [styles.cell, value === 'MISS' ? styles.miss : ( value.includes(HIT) ? styles.hit : ( value.includes(TOTAL) ? styles.total : '' ) )]
+
     return (
-        <div className={"cell"}></div>
+        <div className={classes.join(' ')} onClick={handleCellClick}></div>
     )
 }
 
